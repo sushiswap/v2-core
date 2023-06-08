@@ -1,0 +1,48 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# misc
+.DS_Store
+*.pem
+
+# debug
+.pnpm-debug.log*
+
+
+# webstorm
+.idea
+
+# env
+.env
+
+# typechain
+typechain
+
+# exports
+exports
+
+# cache
+cache
+
+# generated
+generated
+
+# artifacts
+artifacts
+
+# artifacts zk
+artifacts-zk
+
+# cache zk
+cache-zk
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
