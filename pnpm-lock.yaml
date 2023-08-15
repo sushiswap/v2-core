@@ -5,6 +5,7 @@ specifiers:
   '@openzeppelin/contracts': 3.1.0
   '@tenderly/hardhat-tenderly': ^1.0.13
   '@types/node': 18.11.18
+  dotenv: 16.3.1
   eslint: 8.41.0
   hardhat: 2.12.4
   hardhat-deploy: 0.11.22
@@ -16,6 +17,7 @@ devDependencies:
   '@openzeppelin/contracts': 3.1.0
   '@tenderly/hardhat-tenderly': 1.7.7_2lseqtovkpll54q66bropeckji
   '@types/node': 18.11.18
+  dotenv: 16.3.1
   eslint: 8.41.0
   hardhat: 2.12.4_pyqfhkbboucpxgvrs7ocxwodkm
   hardhat-deploy: 0.11.22
@@ -1509,6 +1511,11 @@ packages:
     engines: {node: '>=6.0.0'}
     dependencies:
       esutils: 2.0.3
+    dev: true
+
+  /dotenv/16.3.1:
+    resolution: {integrity: sha512-IPzF4w4/Rd94bA9imS68tZBaYyBWSCE47V1RGuMrB94iyTOIEwRmVL2x/4An+6mETpLrKJ5hQkB8W4kFAadeIQ==}
+    engines: {node: '>=12'}
     dev: true
 
   /ee-first/1.1.1:

@@ -1,11 +1,7 @@
 import "dotenv/config";
-import "hardhat-typechain";
 import "@nomiclabs/hardhat-ethers";
-import "@nomiclabs/hardhat-waffle";
-import "@nomiclabs/hardhat-etherscan";
 import "@nomiclabs/hardhat-ethers";
 import "hardhat-deploy";
-import "hardhat-deploy-ethers";
 
 const accounts = {
   mnemonic:
@@ -24,6 +20,26 @@ const config = {
       saveDeployments: true,
     },
   },
+  namedAccounts: {
+    // e.g. ledger://0x18dd4e0Eb8699eA4fee238dE41ecF115e32272F8
+    deployer: process.env.LEDGER || { default: 0 },
+    alice: {
+      default: 1,
+    },
+    bob: {
+      default: 2,
+    },
+    carol: {
+      default: 3,
+    },
+    dev: {
+      default: 4,
+    },
+    feeTo: {
+      default: 5,
+    },
+  },
+
   solidity: {
     compilers: [
       {
