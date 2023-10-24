@@ -81,7 +81,14 @@ const config = {
       chainId: 534352,
       live: true,
       saveDeployments: true,
-    }
+    },
+    filecoin: {
+      url: 'https://api.node.glif.io/rpc/v1',
+      accounts,
+      chainId: 314,
+      live: true,
+      saveDeployments: true,
+    },
   },
   namedAccounts: {
     // e.g. ledger://0x18dd4e0Eb8699eA4fee238dE41ecF115e32272F8
