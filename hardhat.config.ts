@@ -19,6 +19,13 @@ const config = {
       live: true,
       saveDeployments: true,
     },
+    celo: {
+      url: 'https://forno.celo.org',
+      accounts,
+      chainId: 42220,
+      live: true,
+      saveDeployments: true,
+    },
   },
   namedAccounts: {
     // e.g. ledger://0x18dd4e0Eb8699eA4fee238dE41ecF115e32272F8

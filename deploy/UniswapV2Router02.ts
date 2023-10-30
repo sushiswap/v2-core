@@ -19,7 +19,7 @@ const func: DeployFunction = async function ({
 
   const factory = await ethers.getContract("UniswapV2Factory");
 
-  await deploy("UniswapV2Router02", {
+  await deploy(chainId === 42220 ? "UniswapV2Router02Celo" : "UniswapV2Router02", {
     from: deployer,
     args: [factory.address, process.env.WNATIVE_ADDRESS],
     log: true,
