@@ -89,6 +89,13 @@ const config = {
       live: true,
       saveDeployments: true,
     },
+    haqq: {
+      url: 'https://haqq-evm.publicnode.com	',
+      accounts,
+      chainId: 11235,
+      live: true,
+      saveDeployments: true,
+    }
   },
   namedAccounts: {
     // e.g. ledger://0x18dd4e0Eb8699eA4fee238dE41ecF115e32272F8
