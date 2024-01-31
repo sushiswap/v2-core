@@ -95,6 +95,13 @@ const config = {
       chainId: 11235,
       live: true,
       saveDeployments: true,
+    },
+    zetachain: {
+      url: 'https://zetachain-evm.blockpi.network/v1/rpc/public',
+      accounts,
+      chainId: 7000,
+      live: true,
+      saveDeployments: true
     }
   },
   namedAccounts: {
