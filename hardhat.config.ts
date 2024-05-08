@@ -19,6 +19,13 @@ const config = {
       live: true,
       saveDeployments: true,
     },
+    celo: {
+      url: 'https://forno.celo.org',
+      accounts,
+      chainId: 42220,
+      live: true,
+      saveDeployments: true,
+    },
     kava: {
       url: 'https://evm.kava.io',
       accounts,
