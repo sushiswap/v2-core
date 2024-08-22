@@ -1,7 +1,7 @@
 import "dotenv/config";
 import "@nomiclabs/hardhat-ethers";
-import "@nomiclabs/hardhat-ethers";
 import "hardhat-deploy";
+import "@nomicfoundation/hardhat-verify";
 
 const accounts = {
   mnemonic:
@@ -109,6 +109,26 @@ const config = {
       chainId: 7000,
       live: true,
       saveDeployments: true
+    },
+    curtis: {
+      url: 'https://curtis.rpc.caldera.xyz/http',
+      accounts,
+      chainId: 33111,
+      live: true,
+      saveDeployments: true
+    },
+    arbitrumSepolia: {
+      url: 'https://sepolia-rollup.arbitrum.io/rpc',
+      accounts,
+      chainId: 421614,
+      live: true,
+      saveDeployments: true,
+      verify: {
+        etherscan: {
+          apiUrl: 'https://api-sepolia.arbiscan.io/api',
+          apiKey: process.env.ARBISCAN_API_KEY
+        }
+      }
     }
   },
   namedAccounts: {
@@ -135,6 +155,15 @@ const config = {
     compilers: [
       {
         version: "0.6.12",
+        settings: {
+          optimizer: {
+            enabled: true,
+            runs: 200,
+          },
+        },
+      },
+      {
+        version: "0.4.18",
         settings: {
           optimizer: {
             enabled: true,
@@ -194,6 +223,22 @@ const config = {
           apiURL: 'https://api.scrollscan.com/api',
           browserURL: 'https://scrollscan.com/',
         }
+      },
+      {
+        network: 'curtis',
+        chainId: 33111,
+        urls: {
+          apiURL: 'https://curtis.explorer.caldera.xyz/api',
+          browserURL: 'https://curtis.explorer.caldera.xyz/',
+        }
+      },
+      {
+        network: 'arbitrumSepolia',
+        chainId: 421614,
+        urls: {
+          apiURL: 'https://api-sepolia.arbiscan.io/api',
+          browserURL: 'https://sepolia.arbiscan.io/',
+        }
       }
     ],
     apiKey: {
@@ -220,6 +265,7 @@ const config = {
       // arbitrum
       arbitrumOne: process.env.ARBISCAN_API_KEY || '',
       arbitrumTestnet: process.env.ARBISCAN_API_KEY || '',
+      arbitrumSepolia: process.env.ARBISCAN_API_KEY || '',
       // avalanche
       avalanche: process.env.SNOWTRACE_API_KEY || '',
       avalancheFujiTestnet: process.env.SNOWTRACE_API_KEY || '',
@@ -243,9 +289,13 @@ const config = {
       gnosis: process.env.GNOSIS_API_KEY || '',
       linea: process.env.LINEA_API_KEY || '',
       polygonzkevm: process.env.POLYGON_ZKEVM_API_KEY || '',
-      scroll: process.env.SCROLL_API_KEY || ''
+      scroll: process.env.SCROLL_API_KEY || '',
+      curtis: 'api-key',
     },
   },
+  sourcify: {
+    enabled: true
+  }
 };
 
 export default config;
