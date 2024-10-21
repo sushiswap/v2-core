@@ -6,6 +6,7 @@ import './interfaces/IUniswapV2Factory.sol';
 import './UniswapV2Pair.sol';
 
 contract UniswapV2Factory is IUniswapV2Factory {
+    address public override yieldDelegate;
     address public override feeTo;
     address public override feeToSetter;
     address public override migrator;
@@ -42,6 +43,11 @@ contract UniswapV2Factory is IUniswapV2Factory {
         getPair[token1][token0] = pair; // populate mapping in the reverse direction
         allPairs.push(pair);
         emit PairCreated(token0, token1, pair, allPairs.length);
+    }
+
+    function setYieldDelegate(address _yieldDelegate) external override {
+        require(msg.sender == feeToSetter, 'UniswapV2: FORBIDDEN');
+        yieldDelegate = _yieldDelegate;
     }
 
     function setFeeTo(address _feeTo) external override {

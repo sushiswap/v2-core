@@ -5,6 +5,7 @@ pragma solidity =0.6.12;
 import './UniswapV2ERC20.sol';
 import './libraries/Math.sol';
 import './libraries/UQ112x112.sol';
+import './interfaces/IArbInfo.sol';
 import './interfaces/IERC20.sol';
 import './interfaces/IUniswapV2Factory.sol';
 import './interfaces/IUniswapV2Callee.sol';
@@ -64,6 +65,11 @@ contract UniswapV2Pair is UniswapV2ERC20 {
     );
     event Sync(uint112 reserve0, uint112 reserve1);
 
+    function configureDelegateYield(address account) external {
+        require(msg.sender == IUniswapV2Factory(factory).feeToSetter());
+        ArbInfo(0x0000000000000000000000000000000000000065).configureDelegateYield(account);
+    }
+
     constructor() public {
         factory = msg.sender;
     }
@@ -73,6 +79,7 @@ contract UniswapV2Pair is UniswapV2ERC20 {
         require(msg.sender == factory, 'UniswapV2: FORBIDDEN'); // sufficient check
         token0 = _token0;
         token1 = _token1;
+        ArbInfo(0x0000000000000000000000000000000000000065).configureDelegateYield(IUniswapV2Factory(factory).yieldDelegate());
     }
 
     // update reserves and, on the first call per block, price accumulators
